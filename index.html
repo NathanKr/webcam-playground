@@ -6,6 +6,7 @@
     <title>Access Web Camera Using JavaScript</title>
   </head>
   <body>
+    <p id="error" style="color:red; font-weight: bold;"></p>
     <video></video>
     <script>
       // Older browsers might not implement mediaDevices at all, so we set an empty object first
@@ -53,7 +54,9 @@
           };
         })
         .catch(function (err) {
-          console.log(err.name + ": " + err.message);
+          const error = err.name + ": " + err.message;
+          console.log(error);
+          document.getElementById("error").innerHTML = error;
         });
     </script>
   </body>
